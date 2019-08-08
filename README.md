@@ -2,9 +2,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
-## TODO - OVERVIEW...
+## Build Models with Google AutoML
 
-### Binary Classifier with Clean/Balanced Data
+### Model 1: Binary Classifier with Clean/Balanced Data
 
 **Train/Test Split**
 
@@ -24,6 +24,7 @@ The Confusion Matrix grid shows all the predicted labels relative to all the tru
 The values across a row should add up to 100%. Values in the columns have no limitations. 
 
 ![Confusion Matrix](images/confusion-matrix.png)
+
 *Image credits*: https://twitter.com/narkhede_sarang
 
 The cells show:
@@ -72,7 +73,7 @@ In consequence…
 
 Side note: if we decrease the threshold, our model will; classify more images but with less precision (risk of misclassifying assets)
 
-### Binary Classifier with Clean/Unbalanced Data
+### Model 2: Binary Classifier with Clean/Unbalanced Data
 
 **Train/Test Split**
 
@@ -116,7 +117,7 @@ From what you’ve observed, how do unbalanced classes affect a machine learning
 
 It generates bias making the model tend to the “most common” label (aka, misclassification).
 
-### Binary Classifier with Dirty/Balanced Data
+### Model 3: Binary Classifier with Dirty/Balanced Data
 
 **Confusion Matrix**
 
@@ -168,7 +169,7 @@ Depending on the quantity, it can ruin the model completely (example, if most of
 
 In our evaluation we have 50% of normal cases flagged as pneumonia and 27.3% of pneumonia cases flagged as normal. 
 
-### Binary Classifier with Dirty/Balanced Data
+### Model 4: 3-Class Model
 
 **Confusion Matrix**
 
