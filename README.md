@@ -117,3 +117,149 @@ From what you’ve observed, how do unbalanced classes affect a machine learning
 It generates bias making the model tend to the “most common” label (aka, misclassification).
 
 ### Binary Classifier with Dirty/Balanced Data
+
+**Confusion Matrix**
+
+How has the confusion matrix been affected by the dirty data?
+Include a screenshot of the new confusion matrix.
+
+In our evaluation 50% of true cases of normal were classified as pneumonia.
+And, 27.3% true cases of pneumonia were classified as normal.
+
+Both precision and recall decreased to 63.2% and we have a big number of images wrong labeled. In consequence, our model is erroneously trained flagging cases of pneumonia as normal (and vice versa) what’s reflected in the Confusion Matrix. 
+
+![Dirty balanced Confusion Matrix](images/dirty-balanced-cm.png)
+
+**Precision & Recall**
+
+How have the model’s precision and recall been affected by the dirty data? (Report the values for a score threshold of 0.5.) Of the binary classifiers, which has the highest precision? Which has the highest recall?
+
+* Precision: 63.2%
+* Recall: 63.2%
+
+We have an important percentage of misclassified images.
+
+* A score threshold of 0 has the highest Recall: 100% (and Precision of 50%) 
+* A score threshold of 1. Has the highest Precision: 100% (and Recall of 0%)
+
+![Dirty balanced Precision and Recall](images/dirty-balanced-t.png)
+
+Models…
+1.	Clean/balanced data
+Here, both, precision and recall are perfect (100%) since we are providing the same number of images for each class.
+    * Precision: 100%
+    * Recall: 100%
+2.	Clean/unbalanced data
+Here, both, precision and recall decreased since our model is biased toward the class with more images (misclassification by bias) 
+    * Precision: 91.1%
+    * Recall: 91.1%
+3.	Dirty/Balanced data
+Here, both, precision and recall decreased since our datasets have wrong images (misclassification by bad labeling). Our model is trained to fail or have a poor performance compared with clean/balanced data.
+    * Precision: 63.2%
+    * Recall: 63.2%
+
+Clean/Balanced data model has the best precision and recall.
+
+**Dirty Data**
+
+From what you’ve observed, how do dirty data affect a machine learning model?
+
+Depending on the quantity, it can ruin the model completely (example, if most of the data is dirty or with wrong labels). Also, dirty data needs a bigger dataset and a bigger number of test images to decrease wrong outputs.
+
+In our evaluation we have 50% of normal cases flagged as pneumonia and 27.3% of pneumonia cases flagged as normal. 
+
+### Binary Classifier with Dirty/Balanced Data
+
+**Confusion Matrix**
+
+Summarize the 3-class confusion matrix. What classes are the model most likely to confuse? What class(es) is the model most likely to get right? What might you do to try to remedy the model’s “confusion”?
+
+The most likely to confuse are bacterial pneumonia and viral pneumonia. 
+The most likely to get right, normal (100%)
+
+I would increase the number of both, bacterial and viral pneumonia (in the same proportion) and balance the relation between normal and pneumonia labels. Currently we have 100 for viral, 100 for bacterial and 100 for normal. I would change the distribution to 100 to viral, 100 to bacterial and 200 to normal (since both, viral and bacterial are subtypes of pneumonia). 
+
+![3 Class Confusion Matrix](images/3-class-cm.png)
+
+**Precision & Recall**
+
+What are the model’s precision and recall? How are these values calculated? (Report the values for a score threshold of 0.5.)
+
+* Precision: 80.6% and is calculated through… 
+true positives / model predictions (true and false positives) 
+
+* Recall: 80.6% and is calculated through…
+true positives / ground truth positives (true positives and false negatives)
+
+![3 Class Precision and Recall](images/3-class-t.png)
+
+**F1 Score**
+
+What is this model’s F1 score?
+
+F1-Scofe combines precision and recall to produce an overall performance measure of the model.  
+
+Precision pneumonia bacterial
+    
+    Correctly predicted: 70%
+    Total predicted: 70.0% + 16.7% =  86.7%
+
+    70% of 100 images = 70 images
+    16.7% of 100 images = 16.7 images
+
+    Precision: 70 / 86.7 = 0.807
+
+Precision normal
+
+    Correctly predicted: 100%
+    Total predicted: 100% + 20.0% + 8.3%
+
+    Precision: 100 / 128.3 = 0.779
+
+Precision pneumonia viral
+
+    Correctly predicted: 75%
+    Total predicted: 75.0% + 10% =  85%
+
+    75% of 100 images = 75 images
+    10% of 100 images = 10 images
+
+    Precision: 75 / 85 = 0.882
+
+**Model Precision:**
+(0.807 + 0.779 + 0.882) / 3 = 0.8226
+
+
+Recall pneumonia bacterial
+
+    Correctly predicted: 70%
+    Real labels: 100
+
+    70% of 100 images = 70 images
+
+    Recall = 70 / 100 = 0.7
+
+Recall normal
+
+    Correctly predicted: 100%
+    Real labels: 100
+
+    100% of 100 images = 100 images
+
+    Recall = 100 / 100 = 1
+
+Recall pneumonia viral
+
+    Correctly predicted: 75%
+    Real labels: 100
+
+    75% of 100 images = 75 images
+
+    Recall = 75 / 100 = 0.75
+
+**Model Recall:**
+(0.7 + 1 + 0.75) / 3 = 0.816 
+
+![F1 score formula](images/f1-score.png)
+
+**F1** = (2 * 0.8226 * 0.816) / (0.8226 + 0.816) = 1.3424 / 1.6386 = 0.819
