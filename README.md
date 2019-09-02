@@ -17,11 +17,13 @@ How much data was used for training? How much data was used for testing?
 
 **Confusion Matrix**
 
-What do each of the cells in the confusion matrix describe? What values did you observe (include a screenshot)? What is the true positive rate for the “pneumonia” class? What is the false positive rate for the “normal” class?
+What do each of the cells in the confusion matrix describe? 
+What values did you observe (include a screenshot)? What is the true positive rate for the “pneumonia” class? 
+What is the false positive rate for the “normal” class?
 
 The Confusion Matrix grid shows all the predicted labels relative to all the true labels (or, what is the same, each cell shows the relation between the true label and the predicted label).
 
-The values across a row should add up to 100%. Values in the columns have no limitations. 
+Values across a row should add up to 100%. Values in the columns have no limitations. 
 
 ![Confusion Matrix](images/confusion-matrix.png)
 
@@ -33,7 +35,7 @@ The cells show:
 3. FN: False Negative. Example: we predicted that is NOT pneumonia and it IS pneumonia.
 4. TN: True Negative. Example: we predicted that is NOT pneumonia and it is NOT pneumonia.
 
-The result was…
+The result was...
 * 100% of the true cases of the label “normal” were classified as “normal” 100% of the times
 * 100% of the true cases of the label “pneumonia” were classified as “pneumonia” 100% of the times.
 
@@ -53,7 +55,7 @@ Formula: TP / (TP + FP)
 Recall measures the percentage of correctly identified instances of total possible instances.
 Formula: TP / (TP + FN)
 
-Or, from Google’s Docs… “Precision and recall help us understand how well our model is capturing information, and how much it’s leaving out. Precision tells us, from all the test examples that were assigned a label, how many actually were supposed to be categorized with that label. Recall tells us, from all the test examples that should have had the label assigned, how many were actually assigned the label”
+Or, from Google’s Docs... “Precision and recall help us understand how well our model is capturing information, and how much it’s leaving out. Precision tells us, from all the test examples that were assigned a label, how many actually were supposed to be categorized with that label. Recall tells us, from all the test examples that should have had the label assigned, how many were actually assigned the label”
 
 * Score threshold: 0.50
 * Recall: 1.000
@@ -67,7 +69,7 @@ When you increase the score threshold, what happens to precision?
 What happens to recall? Why?
 
 If we increase the threshold our model will classify fewer images, but it will have a lower risk of misclassifying these assets (model will have more confidence)
-In consequence…
+In consequence...
 * Precision will increase
 * Recall will decrease 
 
@@ -96,7 +98,7 @@ This is a strange output.
 I would expect to have more images classified as pneumonia since we are “biasing” the model using 3 times (300) the quantity of assets for pneumonia in relation to normal (100).
 I talked with my mentor and she told me to re build the model, however, I’m still receiving a result similar to the previous one. 
 
-However, to answer the rubric’s question… In unbalanced/clean, model will bias towards the label or class with more images. In this case, pneumonia. Or what is the same, in the Confusion Matrix we could see cases of normal flagged as pneumonia since our model will classify more cases as pneumonia and less as normal.
+However, to answer the rubric’s question... In unbalanced/clean, model will bias towards the label or class with more images. In this case, pneumonia. Or what is the same, in the Confusion Matrix we could see cases of normal flagged as pneumonia since our model will classify more cases as pneumonia and less as normal.
 
 ![Clean unbalanced Confusion Matrix](images/clean-unbalanced-cm.png)
 
@@ -145,7 +147,7 @@ We have an important percentage of misclassified images.
 
 ![Dirty balanced Precision and Recall](images/dirty-balanced-t.png)
 
-Models…
+Models...
 1.	Clean/balanced data
 Here, both, precision and recall are perfect (100%) since we are providing the same number of images for each class.
     * Precision: 100%
@@ -186,10 +188,10 @@ I would increase the number of both, bacterial and viral pneumonia (in the same 
 
 What are the model’s precision and recall? How are these values calculated? (Report the values for a score threshold of 0.5.)
 
-* Precision: 80.6% and is calculated through… 
+* Precision: 80.6% and is calculated through... 
 true positives / model predictions (true and false positives) 
 
-* Recall: 80.6% and is calculated through…
+* Recall: 80.6% and is calculated through...
 true positives / ground truth positives (true positives and false negatives)
 
 ![3 Class Precision and Recall](images/3-class-t.png)
